@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 
 public class AtividadeListadeTarefas {
-
+   // pode declarar aqui para se usado em todos metodos
+    //static  Scanner leitura = new Scanner(System.in);
     public static void menu (){
         System.out.println("Escolha o tipo de condição da tarefa");
         System.out.println("1-Adicionar");
