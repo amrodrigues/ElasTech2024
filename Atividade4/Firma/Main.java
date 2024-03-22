@@ -8,14 +8,15 @@ public class Main {
         System.out.println( "Colaborador: " + colaborador1.getPrimeiroNome() + colaborador1.getSobrenome());
         System.out.println("Salario: " + colaborador1.getSalarioMensal());
         System.out.println("Salario Anual: " + colaborador1.salarioAnual());
-        System.out.println("Salario Anual+10%: " + colaborador1.salarioAnual10());
-
+        System.out.println("Ajuste salario +10%: " + colaborador1.ajusteSalario());
+        System.out.println("Salario Anual: " + colaborador1.salarioAnual());
         System.out.println("-----------------------");
 
         System.out.println( "Colaborador:" + colaborador2.getPrimeiroNome() + colaborador2.getSobrenome());
         System.out.println("Salario:" + colaborador2.getSalarioMensal());
         System.out.println("Salario Anual: " + colaborador2.salarioAnual());
-        System.out.println("Salario Anual+10%: " + colaborador2.salarioAnual10());
+        System.out.println("Ajuste salario +10%: " + colaborador2.ajusteSalario());
+        System.out.println("Salario Anual: " + colaborador2.salarioAnual());
 
     }
 }

@@ -10,7 +10,13 @@ public class Firma {
     {
         this.primeiroNome=primeiroNome;
         this.sobrenome = sobrenome;
-        this.salarioMensal = salarioMensal;
+        if (salarioMensal> 0) {
+            this.salarioMensal = salarioMensal;
+        }
+        else
+        {
+            this.salarioMensal = 0;
+        }
     }
 
     public double getSalarioMensal() {
@@ -42,9 +48,9 @@ public class Firma {
         return salarioMensal*12;
     }
 
-    public double salarioAnual10()
+    public double ajusteSalario()
     {
-        double salarioAnual = salarioAnual();
-        return salarioAnual*0.10;
+
+        return salarioMensal*=1.10;
     }
 }
