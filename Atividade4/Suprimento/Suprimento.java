@@ -12,23 +12,27 @@ public class Suprimento {
     {
         this.numeroItem = numeroItem;
         this.descricaoItem = descricaoItem;
-        this.qtdeItem = qtdeItem;
-        this.precouniItem = precouniItem;
+
+        if (qtdeItem > 0)
+        {
+            this.qtdeItem = qtdeItem;
+        }
+        else
+        {
+            this.qtdeItem = 0;
+        }
+
+        if (qtdeItem > 0)
+        {
+            this.precouniItem = precouniItem;
+        }
+        else
+        {
+            this.qtdeItem = 0;
+        }
+
     }
 
-    public void validaQuantidade( int qtdeItem){
-        if (qtdeItem < 0)
-        {
-           this.qtdeItem = 0;
-        }
-    }
-
-    public void validaPreco( int precouniItem){
-        if (precouniItem < 0)
-        {
-            this.precouniItem = 0.0;
-        }
-    }
 
     public double getPrecouniItem() {
         return precouniItem;
