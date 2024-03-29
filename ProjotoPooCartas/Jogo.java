@@ -1,10 +1,12 @@
 package ProjotoPooCartas;
 
 import java.util.Scanner;
-
+import java.util.Random;
 public class Jogo {
+    Random random = new Random();
     Scanner leitura = new Scanner(System.in);
     private Jogador jogador = null;
+    int dano;
     public void iniciarJogo()
     {
         System.out.println("Jogo Iniciado \uD83C\uDFAE\n");
@@ -15,19 +17,20 @@ public class Jogo {
         leitura.nextLine();
         if (escolha == 1)
         {
-            jogador = new Guerreiro( 100, 10);
+            jogador = new Guerreiro( "Guerreiro  \uD83D\uDC82\u200D♀\uFE0F" ,100);
         }
         else if(escolha==2)
         {
-            jogador = new Mago(80, 15);
+            jogador = new Mago("Mago  \uD83E\uDDD9\u200D♂\uFE0F\n",80);
         }
         else
         {
             System.out.println("Escolha inválida");
-           // iniciarJogo();
+            iniciarJogo();
         }
-        Inimigo inimigo = new Inimigo(50, 5);
+        Inimigo inimigo = new Inimigo("Inimigo",50);
         jogador.inicializarCartas();
+        inimigo.inicializarCartas();
         System.out.println(".....Iniciando batalha... ");
       while (jogador.estaVivo() && inimigo.estaVivo()) {
           jogador.mostrarCartas();
@@ -36,23 +39,27 @@ public class Jogo {
           leitura.nextLine();
 
         if (escolhacarta >= 1 && escolhacarta <= jogador.getCartas().size()) {
-            Cartas cartaEscolhida = jogador.getCartas().get(escolha - 1);
+            Cartas cartaEscolhida = jogador.getCartas().get(escolhacarta - 1);
             System.out.println("Você usou a carta: " + cartaEscolhida.getNome());
-            int dano = cartaEscolhida.getValor();
-            inimigo.receberDano(dano);
+            dano = cartaEscolhida.getValor();
+            inimigo.receberDano(jogador, dano);
         } else {
             System.out.println("Escolha inválida. Tente novamente.");
         }
 
         if (inimigo.estaVivo()) {
-            inimigo.atacar(jogador);
+            escolhacarta = random.nextInt(5) ;
+            Cartas cartaEscolhida = inimigo.getCartas().get(escolhacarta);
+            dano = cartaEscolhida.getValor();
+            inimigo.atacar(jogador ,dano);
         }
-          if (jogador.estaVivo()) {
-              System.out.println("Você venceu! \uD83D\uDE01 ");
-          } else {
-              System.out.println("Você foi derrotado! \uD83D\uDE2D ");
-          }
+
     }
+        if (jogador.estaVivo()) {
+            System.out.println("Você venceu! \uD83D\uDE01 ");
+        } else {
+            System.out.println("Você foi derrotado! \uD83D\uDE2D ");
+        }
     }
 
 }

@@ -1,7 +1,7 @@
 package ProjotoPooCartas;
 
 public class Mago extends Jogador {
-    public Mago( int vida, int ataque) {
-        super(vida, ataque);
+    public Mago( String nome,  int vida) {
+        super(nome, vida);
     }
 }

@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Jogador {
-
+    private String nome;
     private List<Cartas> cartas;
      private int vida;
-     private int ataque;
 
     public int getVida() {
         return vida;
@@ -17,17 +16,21 @@ public class Jogador {
         this.vida = vida;
     }
 
-    public int getAtaque() {
-        return ataque;
+    public String getNome() {
+        return nome;
     }
 
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Jogador(int vida, int ataque) {
+    public void setCartas(List<Cartas> cartas) {
+        this.cartas = cartas;
+    }
+
+    public Jogador(String nome, int vida) {
+        this.nome = nome;
         this.vida = vida;
-        this.ataque = ataque;
         cartas = new ArrayList<>();
     }
 
@@ -40,7 +43,7 @@ public class Jogador {
         cartas.add(new Cartas("Fogo \uD83D\uDD25", 25));
         cartas.add(new Cartas("Ar \uD83C\uDF2A\uFE0F" , 18));
         cartas.add(new Cartas("Gelo \uD83E\uDDCA", 22));
-        cartas.add(new Cartas("Terra \uD83E\uDDCA", 20));
+        cartas.add(new Cartas("Terra \uD83C\uDF0D", 20));
     }
 
     public void mostrarCartas() {
@@ -51,5 +54,9 @@ public class Jogador {
         public List<Cartas> getCartas() {
         return cartas;
     }
-
+    public  void atacar(Jogador jogador , int dano){
+        int calculo = getVida() -dano;
+        jogador.setVida(calculo);
+        System.out.println("Ataque do inimigo \uD83D\uDC7F ! Sua vida "+jogador.getNome() +": " + jogador.getVida());
+    }
 }
