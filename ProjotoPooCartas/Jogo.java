@@ -21,14 +21,14 @@ public class Jogo {
         }
         else if(escolha==2)
         {
-            jogador = new Mago("Mago  \uD83E\uDDD9\u200D♂\uFE0F\n",80);
+            jogador = new Mago("Mago  \uD83E\uDDD9\u200D♂\uFE0F\n",100);
         }
         else
         {
             System.out.println("Escolha inválida");
             iniciarJogo();
         }
-        Inimigo inimigo = new Inimigo("Inimigo",50);
+        Inimigo inimigo = new Inimigo("Inimigo",100);
         jogador.inicializarCartas();
         inimigo.inicializarCartas();
         System.out.println(".....Iniciando batalha... ");
@@ -42,7 +42,7 @@ public class Jogo {
             Cartas cartaEscolhida = jogador.getCartas().get(escolhacarta - 1);
             System.out.println("Você usou a carta: " + cartaEscolhida.getNome());
             dano = cartaEscolhida.getValor();
-            inimigo.receberDano(jogador, dano);
+            jogador.atacar(jogador, dano);
         } else {
             System.out.println("Escolha inválida. Tente novamente.");
         }
@@ -51,7 +51,7 @@ public class Jogo {
             escolhacarta = random.nextInt(5) ;
             Cartas cartaEscolhida = inimigo.getCartas().get(escolhacarta);
             dano = cartaEscolhida.getValor();
-            inimigo.atacar(jogador ,dano);
+            inimigo.receberDano(jogador ,dano);
         }
 
     }
