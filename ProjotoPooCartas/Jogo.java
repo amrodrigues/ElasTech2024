@@ -28,6 +28,7 @@ public class Jogo {
             System.out.println("Escolha inválida");
             iniciarJogo();
         }
+
         Inimigo inimigo = new Inimigo("Inimigo",100);
         jogador.inicializarCartas();
         inimigo.inicializarCartas();
