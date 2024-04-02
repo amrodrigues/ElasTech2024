@@ -54,9 +54,9 @@ public class Jogador {
         public List<Cartas> getCartas() {
         return cartas;
     }
-    public  void atacar(Jogador jogador , int dano){
+    public  void recebeDano(Jogador jogador , int dano){
         int calculo = getVida() -dano;
         jogador.setVida(calculo);
-        System.out.println("Ataque do inimigo \uD83D\uDC7F ! Sua vida "+jogador.getNome() +": " + jogador.getVida());
+        System.out.println("Ataque do inimigo \uD83D\uDC7F! Sua vida "+jogador.getNome() +": " + jogador.getVida());
     }
 }

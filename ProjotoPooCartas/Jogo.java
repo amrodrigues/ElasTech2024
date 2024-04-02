@@ -17,11 +17,11 @@ public class Jogo {
         leitura.nextLine();
         if (escolha == 1)
         {
-            jogador = new Guerreiro( "Guerreiro  \uD83D\uDC82\u200D♀\uFE0F" ,100);
+            jogador = new Guerreiro( "Guerreiro \uD83D\uDC82\u200D♀\uFE0F" ,100);
         }
         else if(escolha==2)
         {
-            jogador = new Mago("Mago  \uD83E\uDDD9\u200D♂\uFE0F\n",100);
+            jogador = new Mago("Mago \uD83E\uDDD9\u200D♂\uFE0F\n",100);
         }
         else
         {
@@ -43,7 +43,7 @@ public class Jogo {
             Cartas cartaEscolhida = jogador.getCartas().get(escolhacarta - 1);
             System.out.println("Você usou a carta: " + cartaEscolhida.getNome());
             dano = cartaEscolhida.getValor();
-            jogador.atacar(jogador, dano);
+            inimigo.receberDano(jogador, dano);
         } else {
             System.out.println("Escolha inválida. Tente novamente.");
         }
@@ -52,9 +52,10 @@ public class Jogo {
             escolhacarta = random.nextInt(5) ;
             Cartas cartaEscolhida = inimigo.getCartas().get(escolhacarta);
             dano = cartaEscolhida.getValor();
-            inimigo.receberDano(jogador ,dano);
+            System.out.println("inimigo usou a carta: " + cartaEscolhida.getNome());
+            jogador.recebeDano(jogador ,dano);
         }
-
+          System.out.println("..............................");
     }
         if (jogador.estaVivo()) {
             System.out.println("Você venceu! \uD83D\uDE01 ");

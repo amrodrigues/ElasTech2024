@@ -13,6 +13,6 @@ public class Inimigo extends Jogador {
         if (getVida() < 0) {
             setVida(0);
         }
-        System.out.println("Ataque do  "+jogador.getNome() +" Vida inimigo \uD83D\uDC7F:" + this.getVida());
+        System.out.println("Ataque do "+jogador.getNome() +" Vida inimigo \uD83D\uDC7F:" + this.getVida());
     }
 }
